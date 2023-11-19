@@ -1,0 +1,89 @@
+CREATE TABLE Services(
+   idService INT IDENTITY,
+   nomService VARCHAR(255)  NOT NULL,
+   email VARCHAR(255) ,
+   mdp VARCHAR(50) ,
+   PRIMARY KEY(idService),
+   UNIQUE(nomService),
+   UNIQUE(email)
+);
+
+CREATE TABLE Fournisseur(
+   idFournisseur INT IDENTITY,
+   nomFournisseur VARCHAR(255) ,
+   adresse VARCHAR(255) ,
+   email VARCHAR(255) ,
+   phone VARCHAR(50)  NOT NULL,
+   responsable VARCHAR(255) ,
+   PRIMARY KEY(idFournisseur)
+);
+
+CREATE TABLE typePayment(
+   idTypePayement INT IDENTITY,
+   nomTypePayement VARCHAR(255) ,
+   PRIMARY KEY(idTypePayement)
+);
+
+CREATE TABLE bonDeCommande(
+   idBonDeCommande INT IDENTITY,
+   titre VARCHAR(255) ,
+   daty DATETIME,
+   jourLivraison INT,
+   conditionPayement VARCHAR(255) ,
+   etat INT,
+   idTypePayement INT NOT NULL,
+   idFournisseur INT NOT NULL,
+   PRIMARY KEY(idBonDeCommande),
+   FOREIGN KEY(idTypePayement) REFERENCES typePayment(idTypePayement),
+   FOREIGN KEY(idFournisseur) REFERENCES fournisseur(idFournisseur)
+);
+
+CREATE TABLE unite(
+   idUnite INT IDENTITY,
+   nomUnite VARCHAR(50) ,
+   PRIMARY KEY(idUnite)
+);
+
+CREATE TABLE article(
+   idArticle INT IDENTITY,
+   reference VARCHAR(50) ,
+   nomArticle VARCHAR(255) ,
+   idUnite INT NOT NULL,
+   PRIMARY KEY(idArticle),
+   UNIQUE(reference),
+   FOREIGN KEY(idUnite) REFERENCES unite(idUnite)
+);
+
+CREATE TABLE besoinArticle(
+   idBesoinArticle INT IDENTITY,
+   quantite double precision ,
+   etat INT, --0 par defaut , 5 raha valider
+   descri VARCHAR(255),
+   idArticle INT NOT NULL,
+   idService INT NOT NULL,
+   PRIMARY KEY(idBesoinArticle),
+   FOREIGN KEY(idArticle) REFERENCES article(idArticle),
+   FOREIGN KEY(idService) REFERENCES Services(idService)
+);
+
+CREATE TABLE proforma(
+   idProforma INT IDENTITY,
+   prixUnitaire double precision,
+   tva double precision,
+   daty DATETIME,
+   idArticle INT NOT NULL,
+   idFournisseur INT NOT NULL,
+   PRIMARY KEY(idProforma),
+   FOREIGN KEY(idArticle) REFERENCES article(idArticle),
+   FOREIGN KEY(idFournisseur) REFERENCES Fournisseur(idFournisseur)
+);
+
+CREATE TABLE detailsBonCommande(
+   idDetailsB INT IDENTITY,
+   quantite double precision,
+   idProforma INT NOT NULL,
+   idBonDeCommande INT NOT NULL,
+   PRIMARY KEY(idDetailsB),
+   FOREIGN KEY(idProforma) REFERENCES proforma(idProforma),
+   FOREIGN KEY(idBonDeCommande) REFERENCES bonDeCommande(idBonDeCommande)
+);
