@@ -47,9 +47,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td contenteditable="true" style="width:33.3%"></td>
-                        <td contenteditable="true" style="width:33.3%"></td>
-                        <td contenteditable="true" style="width:33.3%"></td>
+                        <td contenteditable="true" style="width:33.3%">date: @details.proforma.Daty</td>
+                        <td contenteditable="true" style="width:33.3%">@details.bonDeCommande.typePayement.NomTypePayement</td>
+                        <td contenteditable="true" style="width:33.3%">@details.bonDeCommande.ConditionPayement</td>
 
                     </tr>
                 </tbody>
@@ -58,8 +58,8 @@
                 <thead>
                 <th>Quantite</th>
                 <th>Designation</th>
-                <th>DESCRIPTION</th>
                 <th>Prix</th>
+                <th>TVA</th>
                 <th class="amountColumn">TOTAL</th>
                 <th class="docEdit trAdd">+</th>
                 </thead>
@@ -67,15 +67,13 @@
                     
                     <tr>
                         <td contenteditable="true">@details.Quantite</td>
-                        <td class="unit" contenteditable="true"></td>
-                        <td contenteditable="true" class="description"></td>
+                        <td class="unit" contenteditable="true">@details.proforma.article.NomArticle</td>
                         <td class="amount" contenteditable="true">@details.proforma.PrixUnitaire</td>
+                         <td class="TVA" contenteditable="true">@details.proforma.TVA</td>
                         <td class="amount amountColumn rowTotal" contenteditable="true">0</td>
                         <td class="docEdit tdDelete">X</td>
                     </tr>
-                <script>
-                    calculateTotal($(".amount"));
-                </script>
+           
                 </tbody>
                 <tfoot>
                     <tr>
