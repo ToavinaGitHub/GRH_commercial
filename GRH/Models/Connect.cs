@@ -7,10 +7,10 @@ namespace GRH.Models
         public static SqlConnection connectDB()
         {
 
-            var datasource = @".\sqlexpress";
-            var database = "grh";
+            var datasource = @".\LENOVO";
+            var database = "ServiceCo";
 
-            string connString = @"Data Source=TOAVINA;Initial Catalog="
+            string connString = @"Data Source=LENOVO;Initial Catalog="
                         + database + ";Persist Security Info=True; Trusted_Connection=True; TrustServerCertificate=True";
 
             SqlConnection conn = new SqlConnection(connString);

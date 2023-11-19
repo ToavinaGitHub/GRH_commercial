@@ -1,4 +1,5 @@
 using System.Data;
+using Azure.Core;
 using Microsoft.Data.SqlClient;
 
 namespace GRH.Models;
@@ -77,5 +78,19 @@ public class Fournisseur
             }
 
         return fournisseur;
+    }
+
+    public void InsertFournisseur(SqlConnection co)
+    {
+        if(co== null)
+        {
+            co = Connect.connectDB();
+        }
+
+        String sql = "insert into fournisseur(nomFournisseur, Adresse, email, phone, responsable) values ('" + NomFournisseur + "','" + Adresse + "','" + Email + "'," + Phone + ",'" + Responsable + "')";
+
+         Console.WriteLine(sql);
+        SqlCommand command = new SqlCommand(sql, co);
+        command.ExecuteNonQuery();
     }
 }
