@@ -1,0 +1,41 @@
+@page
+@model GRH.Views.Home.AddContratEssai
+
+@{
+    Layout = "~/Views/Shared/BackOfficeAccueil.cshtml";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ajout Contrat d'essai </h6>
+    </div>
+    <div class="card-body">
+        <form method="post" action="https://localhost:7248/Home/AddContratEssai">
+            <input type="hidden" name="idClient" value="@ViewBag.idClient"/>
+            <input type="hidden" name="idAnnonce" value="@ViewBag.idAnnonce"/>
+            <div class="form-group">
+                <label for="addresse">Adresse</label>
+                <input type="text" class="form-control" name="addresse" id="addresse" placeholder="Saisissez l'adresse">
+            </div>
+            <div class="form-group">
+                <label for="debut">Date de Début</label>
+                <input type="date" class="form-control" id="debut" name="debut">
+            </div>
+            <div class="form-group">
+                <label for="fin">Date de Fin</label>
+                <input type="date" class="form-control" id="fin" name="fin">
+            </div>
+            <div class="form-group">
+                <label for="salaire">Salaire</label>
+                <input type="number" step="0.01" name="salaire" class="form-control" id="salaire" placeholder="Saisissez le salaire">
+            </div>
+            <div class="form-group">
+                <label for="salaire">Avantages : </label>
+                @foreach (Avantage a in @ViewBag.allAvantage)
+                {
+                    <input id="@a.idAvantage" value="@a.idAvantage" type="checkbox" name="@a.idAvantage"/>@a.nomAvantage
+                }
+            </div>
+            <input type="submit" class="btn btn-primary" value="Inserer">
+        </form>
+    </div>
+</div>

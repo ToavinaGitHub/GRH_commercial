@@ -1,0 +1,59 @@
+
+@{
+     Layout = "~/Views/Shared/BackOfficeAccueil.cshtml";
+}
+<div class="card shadow mb-4">
+ <div class="card-header py-3">
+   <h6 class="m-0 font-weight-bold text-primary">Liste Annonce </h6>
+ </div>
+ <div class="card-body">
+   <div class="table-responsive">
+     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+       <thead>
+       <tr>
+         <th>Matricule</th>
+         <th>Mpiasa</th>
+         <th>Poste</th>
+         <th>Debut</th>
+         <th>Fin</th>
+         <th>Raison</th>
+         <th>Action</th>
+       </tr>
+       </thead>
+       <tfoot>
+       <tr>
+         <th>Matricule</th>
+         <th>Mpiasa</th>
+         <th>Poste</th>
+         <th>Debut</th>
+         <th>Fin</th>
+         <th>Raison</th>
+         <th>Action</th>
+       </tr>
+       </tfoot>
+       <tbody>
+       @foreach (DemandeConge dm in @ViewBag.allDm)
+       {
+         <tr>
+           <td>@dm.mpiasa.matricule</td>
+           <td>@dm.mpiasa.clients.nom @dm.mpiasa.clients.nom </td>
+           <td>@dm.mpiasa.postes.nomPoste</td>
+           <td>@dm.debut</td>
+           <td>@dm.fin</td>
+           <td>@dm.raison.nom</td>
+           <td class="action-table">
+             <a href="#" class="btn btn-success btn-circle">
+               <i class="fas fa-check"></i>
+             </a>
+             <a href="#" class="btn btn-danger btn-circle">
+               <i class="fas fa-trash"></i>
+             </a>
+           </td>
+         </tr>
+       }
+       </tbody>
+     </table>
+   </div>
+ </div>
+ </div>
+        

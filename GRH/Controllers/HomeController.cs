@@ -554,6 +554,287 @@ namespace GRH.Controllers
 
             return View("~/Views/Home/ListeDmConge.cshtml");
         }
-      
+
+        public IActionResult toCrudBesoin()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            int idService = Int32.Parse(HttpContext.Session.GetString("sess"));
+            
+            List<BesoinArticle> all = BesoinArticle.GetAllByService(idService,con);
+            List<Article> allArticle = Article.GetAll(con);
+
+            @ViewBag.allArticle = allArticle;
+            @ViewBag.allBesoin = all;
+            
+            return View("~/Views/Home/BesoinAchat.cshtml");
+        }
+
+        [HttpPost]
+        public IActionResult saveBesoin()
+        {
+            SqlConnection con = Connect.connectDB();
+            int idService = Int32.Parse(HttpContext.Session.GetString("sess"));
+
+            Services s = Services.getById(con, idService);
+            
+            int idArticle = Int32.Parse(Request.Form["article"]);
+
+            Article a = Article.GetById(idArticle, con);
+            double qt = Double.Parse(Request.Form["quantite"]);
+            String desc = Request.Form["description"];
+
+            BesoinArticle bs = new BesoinArticle(1,qt,0,desc,a,s);
+            bs.save(con);
+
+            return RedirectToAction("toCrudBesoin");
+        }
+
+        public IActionResult validerBesoin()
+        {
+            SqlConnection con = Connect.connectDB();
+            
+            int id = int.Parse(Request.Query["idBesoin"]);
+            BesoinArticle.valider(id,con);
+            
+            return RedirectToAction("toCrudBesoin");
+        }
+        public IActionResult supprimerBesoin()
+        {
+            SqlConnection con = Connect.connectDB();
+            
+            int id = int.Parse(Request.Query["idBesoin"]);
+            BesoinArticle.supprimer(id,con);
+            
+            return RedirectToAction("toCrudBesoin");
+        }
+
+        public IActionResult allBesoin()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            List<BesoinArticle> all = BesoinArticle.GetAllDejaValider(con);
+
+            @ViewBag.allBesoin = all;
+
+            return View("~/Views/Home/TousBesoin.cshtml");
+
+        }
+        
+        public IActionResult toCrudProforma()
+        {
+            SqlConnection con = Connect.connectDB();
+            
+            List<Article> allArticle = Article.GetAll(con);
+            List<Fournisseur> allFournisseur = Fournisseur.GetAll(con);
+            List<Proforma> allProforma = Proforma.GetAll(con);
+            
+            @ViewBag.allArticle = allArticle;
+            @ViewBag.allFournisseur = allFournisseur;
+            @ViewBag.allProforma = allProforma;
+            
+            return View("~/Views/Home/Proforma.cshtml");
+        }
+
+        [HttpPost]
+        public IActionResult saveProforma()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            int idArticle = Int32.Parse(Request.Form["article"]);
+            int idFour = Int32.Parse(Request.Form["fournisseur"]);
+
+            double pu = Double.Parse(Request.Form["pu"]);
+            double tva = Double.Parse(Request.Form["tva"]);
+
+            DateTime dt;
+            if (DateTime.TryParse(Request.Form["daty"], out dt))
+            {
+                Article a = Article.GetById(idArticle, con);
+                Fournisseur f = Fournisseur.GetById(idFour, con);
+
+                Proforma pf = new Proforma(1, pu, tva, dt,a,f);
+                pf.save(con);
+            }
+
+            return RedirectToAction("toCrudProforma");
+        }
+
+        public IActionResult toBonDeCommande()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            List<TypePayement> allTypePayement = TypePayement.GetAll(con);
+            List<Article> allArticle = Article.GetAll(con);
+
+            @ViewBag.allType = allTypePayement;
+            @ViewBag.allArticle = allArticle;
+
+            return View("~/Views/Home/BonDeCommande.cshtml");
+        }
+        public IActionResult toBonDeCommandeTwo()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            List<TypePayement> allTypePayement = TypePayement.GetAll(con);
+            List<Article> allArticle = Article.GetAll(con);
+            List<Fournisseur> allF = Fournisseur.GetAll(con);
+
+            @ViewBag.allType = allTypePayement;
+            @ViewBag.allArticle = allArticle;
+            @ViewBag.allFournisseur = allF;
+
+            return View("~/Views/Home/BonDeCommande_2.cshtml");
+        }
+
+        [HttpPost]
+        public IActionResult saveBonDeCommande_2()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            String titre = Request.Form["titre"];
+            int livraison = Int32.Parse(Request.Form["livraison"]);
+            int idType = Int32.Parse(Request.Form["typePayement"]);
+            int idFournisseur = Int32.Parse(Request.Form["fournisseur"]);
+
+            Fournisseur fou = Fournisseur.GetById(idFournisseur,con);
+            
+            TypePayement tp = TypePayement.GetById(idType, con);
+            
+            String condition = Request.Form["condition"];
+
+            String[] articles = Request.Form["articles"];
+            String[] qts = Request.Form["qts"];
+
+            Dictionary<Article, double> artQt = new Dictionary<Article, double>();
+            
+            for (int j = 0; j < articles.Length; j++)
+            {
+                artQt.Add(Article.GetById(Int32.Parse(articles[j]),con),Double.Parse(qts[j]));
+            }
+            DateTime dt;
+            if (DateTime.TryParse(Request.Form["daty"], out dt))
+            {
+                BonDeCommande bc = new BonDeCommande(1,titre,dt,livraison,condition,0,tp,fou);
+                bc.save(con);
+
+                bc.artQt = artQt;
+                bc.saveDetails(con);
+
+            }
+
+            return RedirectToAction("toBonDeCommandeTwo");
+        }
+          [HttpPost]
+        public IActionResult saveBonDeCommande()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            String titre = Request.Form["titre"];
+            int livraison = Int32.Parse(Request.Form["livraison"]);
+            int idType = Int32.Parse(Request.Form["typePayement"]);
+
+            TypePayement tp = TypePayement.GetById(idType, con);
+            
+            String condition = Request.Form["condition"];
+
+            String[] articles = Request.Form["articles"];
+            String[] qts = Request.Form["qts"];
+
+            Dictionary<Article, double> artQt = new Dictionary<Article, double>();
+            
+            for (int j = 0; j < articles.Length; j++)
+            {
+                artQt.Add(Article.GetById(Int32.Parse(articles[j]),con),Double.Parse(qts[j]));
+            } 
+            
+            List<int> idFournisseurs = new List<int>();
+            
+            foreach (var dic in artQt)
+            {
+                Proforma pr = Proforma.GetByArticle(dic.Key.IdArticle,con);
+
+                if (idFournisseurs.Contains(pr.fournisseur.IdFournisseur) == false)
+                {
+                    idFournisseurs.Add(pr.fournisseur.IdFournisseur);
+                }
+            }
+
+            DateTime dt;
+
+            if (DateTime.TryParse(Request.Form["daty"], out dt))
+            {
+                List<BonDeCommande> allB = new List<BonDeCommande>();
+                foreach (var i in idFournisseurs)
+                {
+                    Fournisseur f = Fournisseur.GetById(i, con);
+                    BonDeCommande bc = new BonDeCommande(1, titre, dt, livraison, condition, 0, tp, f);
+
+                    Dictionary<Article, double> tempDic = new Dictionary<Article, double>();
+                    foreach (var dic in artQt)
+                    {
+                        Proforma pr = Proforma.GetByArticle(dic.Key.IdArticle, con);
+                        if (pr.fournisseur.IdFournisseur == i)
+                        {
+                            tempDic.Add(dic.Key, dic.Value);
+                        }
+                    }
+
+                    bc.artQt = tempDic;
+                    allB.Add(bc);
+                }
+
+                foreach (var a in allB)
+                {
+                    a.save(con);
+                    a.saveDetails(con);
+                }
+            }
+
+            return RedirectToAction("toBonDeCommande");
+        }
+
+        public IActionResult toAllBonCommande()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            int state = Int32.Parse(Request.Query["state"]);
+
+            List<BonDeCommande> all = BonDeCommande.GetAllByEtat(state, con);
+
+            @ViewBag.all = all;
+
+            return View("~/Views/Home/AllBonDeCommande.cshtml");
+        }
+     
+        public IActionResult decisionFinance()
+        {
+            SqlConnection con = Connect.connectDB();
+            
+            int idBd = int.Parse(Request.Query["idBonDeCommande"]);
+
+            int decision = int.Parse(Request.Query["decision"]);
+            
+            BonDeCommande bd = BonDeCommande.GetById(idBd, con);
+            
+            bd.transaction(decision,con);
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult decisionDg()
+        {
+            SqlConnection con = Connect.connectDB();
+            
+            int idBd = int.Parse(Request.Query["idBonDeCommande"]);
+
+            int decision = int.Parse(Request.Query["decision"]);
+            
+            BonDeCommande bd = BonDeCommande.GetById(idBd, con);
+            
+            bd.transaction(decision,con);
+
+            return RedirectToAction("Index");
+        }
+        
     }
 }

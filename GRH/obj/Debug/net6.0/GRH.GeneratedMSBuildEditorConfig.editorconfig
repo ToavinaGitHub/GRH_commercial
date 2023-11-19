@@ -52,8 +52,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRDb250cmF0RXNzYWkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/GitHub_clone/GRH/GRH/Views/Home/AffBonDeCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZmZCb25EZUNvbW1hbmRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/GitHub_clone/GRH/GRH/Views/Home/AllAnnonce.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxBbm5vbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub_clone/GRH/GRH/Views/Home/AllBonDeCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxCb25EZUNvbW1hbmRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub_clone/GRH/GRH/Views/Home/BesoinAchat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCZXNvaW5BY2hhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub_clone/GRH/GRH/Views/Home/BonDeCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb25EZUNvbW1hbmRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub_clone/GRH/GRH/Views/Home/BonDeCommande_2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb25EZUNvbW1hbmRlXzIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/GitHub_clone/GRH/GRH/Views/Home/ChoiceDetails.cshtml]
@@ -100,12 +120,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/GitHub_clone/GRH/GRH/Views/Home/Proforma.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9mb3JtYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/GitHub_clone/GRH/GRH/Views/Home/QCM.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxRQ00uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/GitHub_clone/GRH/GRH/Views/Home/Test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub_clone/GRH/GRH/Views/Home/TousBesoin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUb3VzQmVzb2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/GitHub_clone/GRH/GRH/Views/Preback/Login.cshtml]

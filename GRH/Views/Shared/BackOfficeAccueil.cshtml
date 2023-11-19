@@ -67,6 +67,78 @@
           <a class="collapse-item" asp-controller="CreateAnnonce">Creer une annonce</a>
         </div>
       </div>
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              <i class="fas fa-scroll"></i>
+              <span>Besoin</span>
+            </a>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Besoin :</h6>
+          <a class="collapse-item" asp-controller="Home" asp-action="toCrudBesoin">Besoin Materiel</a>
+        </div>
+      </div>
+    
+      @if (@Context.Session.GetString("sess").Equals("4"))
+      {
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+          <i class="fas fa-scroll"></i>
+          <span>Tous les besoins</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Tous :</h6>
+            <a class="collapse-item" asp-controller="Home" asp-action="allBesoin">Besoin Materiel</a>
+          </div>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+          <i class="fas fa-scroll"></i>
+          <span>Proforma</span>
+        </a>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Inserer :</h6>
+            <a class="collapse-item" asp-controller="Home" asp-action="toCrudProforma">Inserer Proforma</a>
+          </div>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+          <i class="fas fa-scroll"></i>
+          <span>Bon de commande</span>
+        </a>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Inserer :</h6>
+            <a class="collapse-item" asp-controller="Home" asp-action="toBonDeCommande">Bon de commande Meth.1</a>
+            <a class="collapse-item" asp-controller="Home" asp-action="toBonDeCommandeTwo">Bon de commande Meth.2</a>
+            <h6 class="collapse-header">Voir :</h6>
+            <a class="collapse-item" href="https://localhost:7248/Home/toAllBonCommande?state=50">Accepter par DAF</a>
+            <a class="collapse-item" href="https://localhost:7248/Home/toAllBonCommande?state=999">Tous</a>
+          </div>
+        </div>
+      }else if (@Context.Session.GetString("sess").Equals("5"))
+      {
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+          <i class="fas fa-scroll"></i>
+          <span>Bon de commande</span>
+        </a>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Demande validation :</h6>
+            <a class="collapse-item" href="https://localhost:7248/Home/toAllBonCommande?state=0">Tous</a>
+          </div>
+        </div>
+      }else if (@Context.Session.GetString("sess").Equals("6"))
+             {
+               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                 <i class="fas fa-scroll"></i>
+                 <span>Bon de commande</span>
+               </a>
+               <div id="collapseSix" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+                 <div class="bg-white py-2 collapse-inner rounded">
+                   <h6 class="collapse-header">Demande validation :</h6>
+                   <a class="collapse-item" href="https://localhost:7248/Home/toAllBonCommande?state=5">Tous les demandes</a>
+                 </div>
+               </div>
+             }
     </li>
   }
   else
