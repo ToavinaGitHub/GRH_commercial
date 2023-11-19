@@ -87,7 +87,7 @@ public class Fournisseur
             co = Connect.connectDB();
         }
 
-        String sql = "insert into fournisseur(nomFournisseur, Adresse, email, phone, responsable) values ('" + NomFournisseur + "','" + Adresse + "','" + Email + "'," + Phone + ",'" + Responsable + "')";
+        String sql = "insert into fournisseur(nomFournisseur, Adresse, email, phone, responsable) values ('" + NomFournisseur + "','" + Adresse + "','" + Email + "','" + Phone + "','" + Responsable + "')";
 
          Console.WriteLine(sql);
         SqlCommand command = new SqlCommand(sql, co);

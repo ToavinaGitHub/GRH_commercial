@@ -835,6 +835,37 @@ namespace GRH.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult bonCommande()
+        {
+            int idBd = int.Parse(Request.Query["idBonDeCommande"]);
+            return View("~/Views/Home/ShowBonCommande.cshtml");
+        }
+
+        public IActionResult InsertFournisseur()
+        {
+            return View();
+        }
+
+        public IActionResult saveFournisseur()
+        {
+            String nom = Request.Form["nom"];
+            String adresse = Request.Form["adresse"];
+            String phone = Request.Form["phone"];
+            String email = Request.Form["email"];
+            String responsable = Request.Form["responsable"];
+
+            SqlConnection co = Connect.connectDB();
+            Fournisseur fournisseur = new Fournisseur();
+            fournisseur.NomFournisseur = nom;
+            fournisseur.Adresse= adresse;
+            fournisseur.Email = email;
+            fournisseur.Phone = phone;
+            fournisseur.Responsable = responsable;
+
+            fournisseur.InsertFournisseur(co);
+            return RedirectToAction("InsertFournisseur");
+        }
         
     }
 }
