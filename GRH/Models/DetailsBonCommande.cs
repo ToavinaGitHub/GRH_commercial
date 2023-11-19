@@ -102,7 +102,41 @@ public class DetailsBonCommande
             return detailsBonCommande;
         }
 
-        public void save(SqlConnection con)
+
+    public DetailsBonCommande GetByIdBonCommande(int id, SqlConnection con)
+    {
+        if (con == null || con.State == ConnectionState.Closed)
+        {
+            con = Connect.connectDB();
+        }
+
+        DetailsBonCommande detailsBonCommande = null;
+        string query = "SELECT * FROM DetailsBonCommande WHERE idBonDeCommande = @Id";
+        using (SqlCommand cmd = new SqlCommand(query, con))
+        {
+            cmd.Parameters.AddWithValue("@Id", id);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    detailsBonCommande = new DetailsBonCommande
+                    {
+                        IdDetailsB = Convert.ToInt32(reader["idDetailsB"]),
+                        Quantite = Convert.ToDouble(reader["quantite"]),
+                        proforma = new Proforma
+                        {
+                            IdProforma = (int)reader["idProforma"]
+                        }
+                       
+                    };
+                }
+                reader.Close();
+            }
+        }
+        detailsBonCommande.proforma = Proforma.GetById(detailsBonCommande.proforma.IdProforma, con);
+        return detailsBonCommande;
+    }
+    public void save(SqlConnection con)
         {
             if (con == null || con.State == ConnectionState.Closed)
             {

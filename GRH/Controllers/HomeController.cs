@@ -838,7 +838,12 @@ namespace GRH.Controllers
 
         public IActionResult bonCommande()
         {
+            SqlConnection con = Connect.connectDB();
             int idBd = int.Parse(Request.Query["idBonDeCommande"]);
+            DetailsBonCommande detailsBonCommande = new DetailsBonCommande();
+            BonDeCommande bonDeCommande = new BonDeCommande();
+
+            ViewBag.detail = detailsBonCommande.GetByIdBonCommande(idBd, con);
             return View("~/Views/Home/ShowBonCommande.cshtml");
         }
 

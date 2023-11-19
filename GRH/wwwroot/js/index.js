@@ -47,5 +47,6 @@ $(document).ready(function() {
 
 
 
+    calculateTotal($(this));
 
 });
