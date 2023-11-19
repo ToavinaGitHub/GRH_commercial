@@ -201,6 +201,10 @@
       "PackagePath": "staticwebassets\\css\\fontawesome-all.min.css"
     },
     {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
       "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\css\\listeAnnonce.css",
       "PackagePath": "staticwebassets\\css\\listeAnnonce.css"
     },
@@ -259,6 +263,10 @@
     {
       "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\js\\demo\\datatables-demo.js",
       "PackagePath": "staticwebassets\\js\\demo\\datatables-demo.js"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\js\\index.js",
+      "PackagePath": "staticwebassets\\js\\index.js"
     },
     {
       "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\js\\jquery-3.4.1.intellisense.js",

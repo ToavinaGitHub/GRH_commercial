@@ -46,7 +46,7 @@ public class TypePayement
             }
 
             TypePayement typePayment = null;
-            string query = "SELECT * FROM TypePayement WHERE idTypePayement = @Id";
+            string query = "SELECT * FROM TypePayment WHERE idTypePayement = @Id";
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
                 cmd.Parameters.AddWithValue("@Id", id);

@@ -20,6 +20,7 @@
   <!-- Custom styles for this template-->
   
   <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/index.css">
 
 </head>
 
@@ -126,6 +127,18 @@
             <a class="collapse-item" href="https://localhost:7248/Home/toAllBonCommande?state=0">Tous</a>
           </div>
         </div>
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSix">
+          <i class="fas fa-scroll"></i>
+          <span>Fournisseur</span>
+        </a>
+
+         <div id="collapseSeven" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Insertion de Fournisseur</h6>
+            <a class="collapse-item" href="https://localhost:7248/Home/InsertFournisseur?state=69">inserer</a>
+          </div>
+        </div>
+
       }else if (@Context.Session.GetString("sess").Equals("6"))
              {
                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
@@ -401,5 +414,7 @@
 
   <!-- Page level custom scripts -->
   <script src="~/js/demo/datatables-demo.js"></script>
+<script type="text/javascript " src="~/js/index.js"></script>
+
 
 </html>

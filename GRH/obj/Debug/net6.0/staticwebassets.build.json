@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H5mas4ayiq8Aj42/97V8/PlQgjaMa/HUWh022yPyytc=",
+  "Hash": "vcrVF47hcZYt7sqIBz2CE9WCHXDgO6mREWvhR+INTbw=",
   "Source": "GRH",
   "BasePath": "_content/GRH",
   "Mode": "Default",
@@ -236,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Identity": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\css\\index.css",
+      "SourceId": "GRH",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\",
+      "BasePath": "_content/GRH",
+      "RelativePath": "css/index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\index.css"
     },
     {
       "Identity": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\css\\listeAnnonce.css",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\demo\\datatables-demo.js"
+    },
+    {
+      "Identity": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\js\\index.js",
+      "SourceId": "GRH",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\",
+      "BasePath": "_content/GRH",
+      "RelativePath": "js/index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\index.js"
     },
     {
       "Identity": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\js\\jquery.validate.js",

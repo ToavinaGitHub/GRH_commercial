@@ -84,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/InsertFournisseur.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnNlcnRGb3Vybmlzc2V1ci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/ListeContratEssai.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0ZUNvbnRyYXRFc3NhaS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -126,6 +130,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/QCM.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxRQ00uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/ShowBonCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG93Qm9uQ29tbWFuZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/Test.cshtml]
