@@ -31,12 +31,12 @@ namespace GRH.Models
             }
             using (var connection = con) 
             {
-                var command = new SqlCommand("SELECT * FROM RH WHERE email='"+email+"' and mdp='"+mdp+"'", connection);
+                var command = new SqlCommand("SELECT * FROM Services WHERE email='"+email+"' and mdp='"+mdp+"'", connection);
                 using (var reader = command.ExecuteReader()) {
                     if (reader.Read())
                     {
                         var rh = new RH() {
-                            idRh = (int)reader["idRH"],
+                            idRh = (int)reader["idService"],
                             email = (String)reader["email"],
                             mdp = (String) reader["mdp"]
                         };
