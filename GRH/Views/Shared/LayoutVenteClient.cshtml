@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="~/VenteClientCss/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="~/VenteClientCss/assets/css/Roboto.css">
+    <link rel="stylesheet" href="~/VenteClientCss/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/VenteClientCss/assets/css/Pretty-Footer-.css">
+    <link rel="stylesheet" href="~/VenteClientCss/assets/css/Pretty-Header-.css">
+    <link rel="stylesheet" href="~/VenteClientCss/assets/css/Shopping-Grid.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md custom-header">
+        <div class="container-fluid">
+            <div><a class="navbar-brand" href="#">Com.<span>Shop</span> </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbar-collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="navbar-nav links">
+                    <li class="nav-item"><a class="nav-link" href="#">Proforma</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Notifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Reports</a></li>
+                    <li class="nav-item"><a class="nav-link custom-navbar" href="#"> Roles</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"> <img class="dropdown-image" src="assets/img/avatar.jpg"></a>
+                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Parametre</a><a class="dropdown-item" href="#">Panier</a><a class="dropdown-item" href="#">Se Deconnecter</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+
+    <footer>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 footer-navigation">
+                <h3><a href="#">Com.<span>Shop</span></a></h3>
+                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="company-name">Company Name © 2015 </p>
+            </div>
+            <div class="col-sm-6 col-md-4 footer-contacts">
+                <div>
+                    <span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p><span class="new-line-span">21 Revolution Street</span> Paris, France</p>
+                </div>
+                <div>
+                    <i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-start"> +1 555 123456</p>
+                </div>
+                <div>
+                    <i class="fa fa-envelope footer-contacts-icon"></i>
+                    <p> <a href="#" target="_blank">support@company.com</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 footer-about">
+                <h4>About the company</h4>
+                <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -157,6 +157,66 @@
       "PackagePath": "staticwebassets\\Image\\up-arrow.png"
     },
     {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\bootstrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\bootstrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\bootstrap\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\bootstrap\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\Login-with-overlay-image.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\css\\Login-with-overlay-image.css"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\Pretty-Footer-.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\css\\Pretty-Footer-.css"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\Pretty-Header-.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\css\\Pretty-Header-.css"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\Roboto.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\css\\Roboto.css"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\Shopping-Grid.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\css\\Shopping-Grid.css"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\fonts\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\fonts\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\img\\avatar.jpg",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\img\\avatar.jpg"
+    },
+    {
       "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\css\\CreateAnnonce.css",
       "PackagePath": "staticwebassets\\css\\CreateAnnonce.css"
     },

@@ -274,6 +274,7 @@ namespace GRH.Controllers
             return RedirectToAction("ListeAnnonce", "FrontOffice");
         }
         
+       
     }
     
 }
