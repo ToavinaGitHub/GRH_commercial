@@ -69,7 +69,10 @@ namespace GRH.Models
             }
 
             ProformaVente proforma = null;
-            string query = "SELECT TOP 1 * FROM ProformaVente ORDER BY idProformaVente DESC";
+            //string query = "SELECT TOP 1 * FROM ProformaVente ORDER BY idProformaVente DESC";
+            string query = "SELECT TOP 1 ProformaVente.*, ClientVente.nomClient FROM ProformaVente " +
+                  "INNER JOIN ClientVente ON ProformaVente.idClientVente = ClientVente.idClientVente " +
+                  "ORDER BY ProformaVente.idProformaVente DESC";
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())

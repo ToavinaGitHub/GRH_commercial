@@ -90,6 +90,8 @@ namespace GRH.Controllers
 
             ProformaVente dernierProforma = ProformaVente.GetLast(co);
             UniteArticle unite = UniteArticle.GetUniteBase(co,proformaVente.articleVente.idArticleVente);
+            string nomClient =ClientVente.GetClientNameById(co, dernierProforma.client.idClientVente);
+
             try
             {
                 
@@ -104,7 +106,7 @@ namespace GRH.Controllers
                         From = new MailAddress("tokywilly03@gmail.com"),
                         Subject = "Proforma.",
                        
-                        Body = $"Cher {dernierProforma.client.nomClient},\n\n{dernierProforma.client.nomClient} demande un proforma de {dernierProforma.articleVente.nomArticle} pour une quantité de {dernierProforma.quantite} {unite.nomUnite}\n\nMerci d'avance.\n\nCordialement,\nDimpex\n 034 78 684 89 ",
+                        Body = $"Cher Service,\n\n{nomClient} demande un proforma de {dernierProforma.articleVente.nomArticle} pour une quantité de {dernierProforma.quantite} {unite.nomUnite}\n\nMerci d'avance.\n\nCordialement,\nDimpex\n 034 78 684 89 ",
                         IsBodyHtml = false
                     };
 

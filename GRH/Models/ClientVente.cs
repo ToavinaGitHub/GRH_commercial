@@ -47,5 +47,34 @@ namespace GRH.Models
             }
             return null;
         }
+
+        public static string GetClientNameById(SqlConnection con, int clientId)
+        {
+            if (con == null || con.State == ConnectionState.Closed)
+            {
+                con = Connect.connectDB();
+            }
+
+            string query = "SELECT nomClient FROM ClientVente WHERE idClientVente = @clientId";
+
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.Parameters.AddWithValue("@clientId", clientId);
+
+                
+                object result = cmd.ExecuteScalar();
+
+               
+                if (result != null && result != DBNull.Value)
+                {
+                    return result.ToString();
+                }
+            }
+
+            
+            return "Nom inconnu";
+        }
+
+
     }
 }
