@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qFOyGIvV0O05Wd5mClODtww7t/PxhqTZTNjEdORAIlk=",
+  "Hash": "ShXLmbgPAdcVUlYVlehKo6bhqk0XHay3qgHiCDhaOBE=",
   "Source": "GRH",
   "BasePath": "_content/GRH",
   "Mode": "Default",
@@ -32504,6 +32504,23 @@
       "OriginalItemSpec": "wwwroot\\VenteClientCss\\assets\\bootstrap\\js\\bootstrap.min.js"
     },
     {
+      "Identity": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\InsertProforma.css",
+      "SourceId": "GRH",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\",
+      "BasePath": "_content/GRH",
+      "RelativePath": "VenteClientCss/assets/css/InsertProforma.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\VenteClientCss\\assets\\css\\InsertProforma.css"
+    },
+    {
       "Identity": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\Login-with-overlay-image.css",
       "SourceId": "GRH",
       "SourceType": "Discovered",
@@ -32723,6 +32740,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\VenteClientCss\\assets\\img\\avatar.jpg"
+    },
+    {
+      "Identity": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\img\\concept-modele-facture-fiche-paie.jpg",
+      "SourceId": "GRH",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\",
+      "BasePath": "_content/GRH",
+      "RelativePath": "VenteClientCss/assets/img/concept-modele-facture-fiche-paie.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\VenteClientCss\\assets\\img\\concept-modele-facture-fiche-paie.jpg"
     }
   ]
 }

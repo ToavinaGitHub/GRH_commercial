@@ -165,6 +165,10 @@
       "PackagePath": "staticwebassets\\VenteClientCss\\assets\\bootstrap\\js\\bootstrap.min.js"
     },
     {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\InsertProforma.css",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\css\\InsertProforma.css"
+    },
+    {
       "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\css\\Login-with-overlay-image.css",
       "PackagePath": "staticwebassets\\VenteClientCss\\assets\\css\\Login-with-overlay-image.css"
     },
@@ -215,6 +219,10 @@
     {
       "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\img\\avatar.jpg",
       "PackagePath": "staticwebassets\\VenteClientCss\\assets\\img\\avatar.jpg"
+    },
+    {
+      "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\VenteClientCss\\assets\\img\\concept-modele-facture-fiche-paie.jpg",
+      "PackagePath": "staticwebassets\\VenteClientCss\\assets\\img\\concept-modele-facture-fiche-paie.jpg"
     },
     {
       "Id": "D:\\ITU\\s5\\Gestion\\ServiceCommercial\\GRH_commercial\\GRH\\wwwroot\\css\\CreateAnnonce.css",

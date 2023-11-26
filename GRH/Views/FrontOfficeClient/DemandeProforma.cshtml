@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutVenteClient.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        // Événement de changement de la sélection d'article
+        $('#article').change(function () {
+            var selectedArticleId = $(this).val(); // Récupérer la valeur sélectionnée
+
+            // Effectuer une requête AJAX pour récupérer les unités en fonction de l'article sélectionné
+            $.ajax({
+                url: '/FrontOfficeClient/GetUnitsByArticle', // Remplacez 'ControllerName' par le nom de votre contrôleur
+                type: 'GET',
+                data: { articleId: selectedArticleId },
+                success: function (data) {
+                    // Mettre à jour le contenu du select des unités
+                    $('#uniteSelect').empty(); // Effacer le contenu actuel
+                    $.each(data, function (key, value) {
+                        $('#uniteSelect').append('<option value="' + value.idUniteArticle + '">' + value.nomUnite + '</option>');
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
+
+<form action="https://localhost:7248/FrontOfficeClient/sendProforma" method="post">
+<div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-4">
+                                    <h3 class="h4 font-weight-bold text-theme" style="text-align: center;">Demander un Proforma</h3>
+                                </div>
+
+
+                                <p class="text-muted mt-2 mb-2">Demander nous un proforma concernant votre article</p>
+
+                                
+                                    <div class="form-group">
+                                        <label for="article">Article</label>
+                                        <select name="article" class="form-control" id="article">
+                                            @foreach(ArticleVente article in ViewBag.listArticle){
+                                            <option value="@article.idArticleVente">@article.nomArticle</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quantite">Quantite</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" name="quantite">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="uniteSelect">Unite :</label>
+                                        <select id="uniteSelect" class="form-control" name="unite"></select>
+                                       
+                                    </div>
+                                    <input type="submit" class="btn btn-theme" value="envoyer">
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                                <div class="account-testimonial">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+</div>
+</form>
