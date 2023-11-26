@@ -7,11 +7,11 @@ namespace GRH.Models
         public static SqlConnection connectDB()
         {
 
-            var datasource = @".\LENOVO";
+            var datasource = @".\sqlexpress";
             var database = "ServiceCo";
 
-            string connString = @"Data Source=LENOVO;Initial Catalog="
-                        + database + ";Persist Security Info=True; Trusted_Connection=True; TrustServerCertificate=True";
+            string connString = @"Data Source=" + datasource + ";Initial Catalog="
+                         + database + ";Persist Security Info=True; Trusted_Connection=True; TrustServerCertificate=True";
 
             SqlConnection conn = new SqlConnection(connString);
             

@@ -1,0 +1,116 @@
+﻿@{
+    Layout = "~/Views/Shared/BackOfficeAccueil.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Votre Titre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #1c4bd8;
+            }
+
+        input[type="hidden"] {
+            display: none;
+        }
+
+        /* Styles spécifiques pour le bouton "Envoyer l'email" */
+        .email-button {
+            background-color: #34a853;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+            .email-button:hover {
+                background-color: #1e7bbd;
+            }
+
+        /* Style pour le message "Article en rupture de stock" */
+        .out-of-stock-message {
+            color: #ff0000;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    @if (ViewBag.id == 1)
+    {
+        <form action="https://localhost:7248/Home/pdfProforma/" method="post">
+            <input type="hidden" name="id" value="1">
+            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+            <p>Quantité insuffisante, reste en stock: @ViewBag.stock.article.nomArticleVente @ViewBag.stock.reste @ViewBag.stock.article.nomUnite </p>
+            <input type="submit" value="PDF">
+        </form>
+        <form action="https://localhost:7248/Home/sendProforma/" method="post">
+            <input type="hidden" name="id" value="1">
+            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+            <input type="submit" class="email-button" value="Envoyer l'email" />
+        </form>
+    }
+    @if (ViewBag.id == 2)
+    {
+        <form action="https://localhost:7248/Home/pdfProforma/" method="post">
+            <input type="hidden" name="id" value="2">
+            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+            <input type="hidden" name="quantite" value="@ViewBag.quantite">
+            <p>Quantité disponible pour: @ViewBag.stock.article.nomArticleVente @ViewBag.quantite @ViewBag.stock.article.nomUnite </p>
+            <input type="submit" value="PDF">
+        </form>
+        <form action="https://localhost:7248/Home/sendProforma/" method="post">
+            <input type="hidden" name="id" value="2">
+            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+            <input type="submit" class="email-button" value="Envoyer l'email" />
+        </form>
+    }
+    @if (ViewBag.id == 3)
+    {
+        <p class="out-of-stock-message">Article en rupture de stock</p>
+        <form action="https://localhost:7248/Home/sendProforma/" method="post">
+            <input type="hidden" name="id" value="3">
+            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+            <input type="submit" class="email-button" value="Envoyer l'email" />
+        </form>
+    }
+</body>
+</html>

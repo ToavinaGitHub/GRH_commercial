@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture Proforma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Proforma</h1>
+    <h3>DIMPEX</h3>
+    <p><strong>Date:</strong> @DateOnly.FromDateTime(DateTime.Now) </p>
+    <p><strong>Client:</strong> @ViewBag.pv.client.nom</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Designation</th>
+                <th>Quantité</th>
+                <th>Unite</th>
+                <th>Prix unitaire</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@ViewBag.stock.article.nomArticleVente</td>
+                <td>@ViewBag.stock.reste</td>
+                <td>@ViewBag.stock.article.nomUnite</td>
+                <td>@ViewBag.stock.article.pu Ar</td>
+                <td>@ViewBag.stock.prixTotal Ar</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

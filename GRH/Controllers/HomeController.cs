@@ -2,18 +2,34 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Microsoft.Data.SqlClient;
-
+using System.Net.Mail;
+using System.Net;
+using System.Net.Mime;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 
 namespace GRH.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICompositeViewEngine _viewEngine;
+        private readonly IConverter _pdfConverter;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICompositeViewEngine viewEngine, IConverter pdfConverter)
         {
             _logger = logger;
+            _viewEngine = viewEngine;
+            _pdfConverter = pdfConverter ?? throw new ArgumentNullException(nameof(pdfConverter));
         }
+
+        /*public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }*/
 
         public IActionResult Index()
         {
@@ -866,6 +882,225 @@ namespace GRH.Controllers
             fournisseur.InsertFournisseur(co);
             return RedirectToAction("InsertFournisseur");
         }
-        
+
+        public IActionResult sendBonDeCommande()
+        {
+            SqlConnection con = Connect.connectDB();
+
+            int idBbcm = int.Parse(Request.Query["idBc"]);
+
+            BonDeCommande bc = BonDeCommande.GetById(idBbcm, con);
+            try
+            {
+                Console.Out.WriteLine("1");
+                // Configuration du client SMTP
+                using (var smtpClient = new SmtpClient("smtp.gmail.com"))
+                {
+                    Console.Out.WriteLine("2");
+                    smtpClient.Port = 587;
+                    smtpClient.Credentials = new NetworkCredential("tetude159@gmail.com", "pfem kugs bwnp tugl");
+                    smtpClient.EnableSsl = true;
+
+                    Console.Out.WriteLine("3");
+                    var message = new MailMessage
+                    {
+                        From = new MailAddress("tetude159@gmail.com"),
+                        Subject = "Bon de commande.",
+                        Body = "Cher " + bc.fournisseur.NomFournisseur + ",\n\nVoici le bon de commande n°00000" + bc.IdBonDeCommande + " du " + bc.Daty + "\n\nMerci d'avance.\n\nCordialement,\nToavina\nDimpex\n 034 78 684 89 ",
+                        IsBodyHtml = false
+                    };
+                    Console.Out.WriteLine(4);
+                    // Ajout des destinataires
+                    message.To.Add(bc.fournisseur.Email);
+
+                    var pdfAttachment = new Attachment("wwwroot/pdf/" + idBbcm + ".pdf", MediaTypeNames.Application.Pdf);
+                    message.Attachments.Add(pdfAttachment);
+
+                    Console.Out.WriteLine("5");
+                    smtpClient.Send(message);
+                    Console.Out.WriteLine("6 f");
+
+
+                    ViewBag.Message = "Email sent successfully!";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Out.WriteLine(ex.Message);
+                ViewBag.Error = $"Error sending email: {ex.Message}";
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+        private string RenderViewToString(string viewName)
+        {
+            var viewResult = _viewEngine.FindView(ControllerContext, viewName, false);
+
+            if (viewResult.View == null)
+            {
+                throw new InvalidOperationException($"View '{viewName}' not found.");
+            }
+
+            using (var sw = new StringWriter())
+            {
+                try
+                {
+                    var viewContext = new ViewContext(
+                        ControllerContext,
+                        viewResult.View,
+                        ViewData,
+                        TempData,
+                        sw,
+                        new HtmlHelperOptions()
+                    );
+
+                    viewResult.View.RenderAsync(viewContext).GetAwaiter().GetResult();
+                }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException($"Error rendering view '{viewName}': {ex.Message}", ex);
+                }
+
+                return sw.GetStringBuilder().ToString();
+            }
+        }
+
+        public IActionResult checkStock()
+        {
+            //bdzb aofb rhcu eowe
+            ProformaVente pv = new ProformaVente();
+            pv= pv.getById(3);
+            Stock stock = new Stock();
+            stock= stock.getStockByArticle(1);
+            if (pv.quantite > stock.reste)
+            {
+                ViewBag.id = 1;
+            }
+            else
+            {
+                ViewBag.quantite = pv.quantite;
+                ViewBag.id = 2;
+            }
+            if (stock.reste == 0)
+            {
+                ViewBag.id = 3;
+            }
+            ViewBag.pv= pv;
+            ViewBag.stock = stock;
+            return View("~/Views/Home/CheckStock.cshtml");
+        }
+
+        public IActionResult pdfProforma()
+        {
+            int id = int.Parse(Request.Form["id"]);
+            int idPv = int.Parse(Request.Form["idPv"]);
+            ProformaVente pv = new ProformaVente();
+            pv = pv.getById(idPv);
+            Stock stock = new Stock();
+            stock = stock.getStockByArticle(pv.article.idArticleVente);
+            if (id == 2)
+            {
+                int quantite= int.Parse(Request.Form["quantite"]);
+                stock.reste = quantite;
+            }
+            stock.prixTotal = stock.reste * stock.article.pu;
+            ViewBag.stock = stock;
+            ViewBag.pv= pv;
+
+            var html = RenderViewToString("AffProforma");
+
+            // Convert HTML to PDF
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+                        ColorMode = ColorMode.Color,
+                        PaperSize = PaperKind.A4,
+                        Margins = new MarginSettings { Top = 10 },
+                    },
+                Objects = {
+                        new ObjectSettings
+                        {
+                            HtmlContent = html,
+                        }
+                    }
+            };
+
+            var pdfBytes = _pdfConverter.Convert(doc);
+
+            // Save PDF file
+            var fileName =  "PV"+pv.idProformaVente+".pdf";
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "pdf", fileName);
+            System.IO.File.WriteAllBytes(filePath, pdfBytes);
+
+            // Return PDF as a file
+            return File(pdfBytes, "application/pdf", fileName);
+
+        }
+
+        public IActionResult sendProforma()
+        {
+          
+            try
+            {
+                int idPv = int.Parse(Request.Form["idPv"]);
+                int id = int.Parse(Request.Form["id"]);
+                ProformaVente pv = new ProformaVente();
+                pv = pv.getById(idPv);
+                Console.Out.WriteLine("1");
+                // Configuration du client SMTP
+                using (var smtpClient = new SmtpClient("smtp.gmail.com"))
+                {
+                    Console.Out.WriteLine("2");
+                    smtpClient.Port = 587;
+                    smtpClient.Credentials = new NetworkCredential("koloina.mihajatiana@gmail.com", "bdzb aofb rhcu eowe");
+                    smtpClient.EnableSsl = true;
+
+                    Console.Out.WriteLine("3");
+                    var message = new MailMessage
+                    {
+                        From = new MailAddress(pv.client.email),
+                        Subject = "Proforma."
+                    };
+
+                    if (id == 3)
+                    {
+                        message.Body = "Nous avons le regret de vous informer que l'article " + pv.article.nomArticleVente + " est en rupture de stock pour le moment. \n\nCordialement,\nKoloina\nDimpex\n 034 71 973 12 ";
+                    }
+                    if(id==2)
+                    {
+                        message.Body = "Cher " + pv.client.nom + ",\n\nVoici le proforma n°00000" + pv.idProformaVente + " du " + DateOnly.FromDateTime(pv.date) + "\n\nMerci d'avance.\n\nCordialement,\nKoloina\nDimpex\n 034 71 973 12 ";
+                    }
+                    if (id == 1)
+                    {
+                        message.Body = "Cher " + pv.client.nom + ",\n\nNous n'avons malheureusement plus en stock la quantite désirée cependant voici le proforma du stock restant n°00000" + pv.idProformaVente + " du " + DateOnly.FromDateTime(pv.date) + "\n\nMerci d'avance.\n\nCordialement,\nKoloina\nDimpex\n 034 71 973 12 ";
+                    }
+                    message.IsBodyHtml = false;
+
+                    Console.Out.WriteLine(4);
+                    // Ajout des destinataires
+                    message.To.Add("koloina.mihajatiana@gmail.com");
+
+                    var pdfAttachment = new Attachment("wwwroot/pdf/PV"+pv.idProformaVente+".pdf", MediaTypeNames.Application.Pdf);
+                    message.Attachments.Add(pdfAttachment);
+
+                    Console.Out.WriteLine("5");
+                    smtpClient.Send(message);
+                    Console.Out.WriteLine("6 f");
+
+
+                    ViewBag.Message = "Email sent successfully!";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Out.WriteLine(ex.Message);
+                ViewBag.Error = $"Error sending email: {ex.Message}";
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
