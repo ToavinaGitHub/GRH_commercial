@@ -89,7 +89,7 @@ namespace GRH.Controllers
 
 
             ProformaVente dernierProforma = ProformaVente.GetLast(co);
-
+            UniteArticle unite = UniteArticle.GetUniteBase(co,proformaVente.articleVente.idArticleVente);
             try
             {
                 
@@ -104,12 +104,15 @@ namespace GRH.Controllers
                         From = new MailAddress("tokywilly03@gmail.com"),
                         Subject = "Proforma.",
                        
-                        Body = $"Cher {dernierProforma.client.nomClient},\n\n{dernierProforma.client.nomClient} demande un proforma de {dernierProforma.articleVente.nomArticle} pour une quantité de {dernierProforma.quantite} {dernierProforma.unite.nomUnite}\n\nMerci d'avance.\n\nCordialement,\nDimpex\n 034 78 684 89 ",
+                        Body = $"Cher {dernierProforma.client.nomClient},\n\n{dernierProforma.client.nomClient} demande un proforma de {dernierProforma.articleVente.nomArticle} pour une quantité de {dernierProforma.quantite} {unite.nomUnite}\n\nMerci d'avance.\n\nCordialement,\nDimpex\n 034 78 684 89 ",
                         IsBodyHtml = false
                     };
 
                     
                     message.To.Add("tokywilly03@gmail.com");
+                    //var pdfAttachment = new Attachment("wwwroot/pdfProforma/" + dernierProforma.idProformaVente + ".pdf", MediaTypeNames.Application.Pdf);
+                    //message.Attachments.Add(pdfAttachment);
+
 
                     smtpClient.Send(message);
                     Console.Out.WriteLine("ato ");

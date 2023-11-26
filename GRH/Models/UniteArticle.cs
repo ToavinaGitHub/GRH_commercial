@@ -164,5 +164,38 @@ namespace GRH.Models
 
             return unite;
         }
+
+        public static UniteArticle GetUniteBase(SqlConnection con, int id)
+        {
+            
+            UniteArticle unite = null;
+            string query = "SELECT * FROM UniteArticle WHERE idArticleVente = @id AND quantite = 1";
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                         unite = new UniteArticle
+                        {
+                            idUniteArticle = Convert.ToInt32(reader["idUniteArticle"]),
+                            articleVente = new ArticleVente
+                            {
+                                idArticleVente = (int)reader["idArticleVente"]
+                            },
+                            nomUnite = reader["nomUnite"].ToString(),
+                            quantite = Convert.ToDouble(reader["quantite"])
+                        };
+                    }
+                    reader.Close ();
+
+                }
+                unite.articleVente = ArticleVente.GetById(unite.articleVente.idArticleVente, con);
+            }
+
+            return unite;
+        }
+
     }
 }

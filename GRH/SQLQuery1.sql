@@ -48,3 +48,17 @@ INSERT INTO ArticleVente (nomArticle) VALUES
   (12,2,'sacs',80);
   select * from articleVente
   select * from uniteArticle
+  create Table proformaVente(
+   idProformaVente int identity PRIMARY KEY,
+   idArticleVente int,
+   quantite double precision,
+   daty datetime,
+   etat int,
+   idUniteArticle int,
+   idClientVente int,
+   Foreign Key (idClientVente) REFERENCES ClientVente(idClientVente),
+   Foreign Key (idUniteArticle) REFERENCES uniteArticle(idUniteArticle),
+   Foreign Key (idArticleVente) REFERENCES ArticleVente(idArticleVente)
+);
+
+select * from proformaVente
