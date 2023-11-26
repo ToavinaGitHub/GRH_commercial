@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!-- AffDemandeProforma.cshtml -->
+
+<h2>Demande Proforma</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Numero du proforma</th>
+            <th>ArticleVente</th>
+            <th>Quantite</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.idProformaVente</td>
+            <td>@Model.articleVente.nomArticle</td>
+            <td>@Model.quantite</td>
+        </tr>
+    </tbody>
+</table>

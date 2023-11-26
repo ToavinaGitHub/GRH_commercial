@@ -6,11 +6,20 @@ using System.Data.Common;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Net;
+using DinkToPdf;
+using DinkToPdf.Contracts;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace GRH.Controllers
 {
     public class FrontOfficeClientController : Controller
     {
+        private readonly IConverter _pdfConverter;
+        private readonly IViewEngine _viewEngine;
+
+
         public IActionResult LoginClient()
         {
             return View("~/Views/FrontOfficeClient/LoginClient.cshtml");
@@ -112,11 +121,13 @@ namespace GRH.Controllers
 
                     
                     message.To.Add("tokywilly03@gmail.com");
-                    //var pdfAttachment = new Attachment("wwwroot/pdfProforma/" + dernierProforma.idProformaVente + ".pdf", MediaTypeNames.Application.Pdf);
-                    //message.Attachments.Add(pdfAttachment);
+                    var pdfAttachment = new Attachment("wwwroot/pdfProforma/" + dernierProforma.idProformaVente + ".pdf", MediaTypeNames.Application.Pdf);
+                    message.Attachments.Add(pdfAttachment);
 
 
                     smtpClient.Send(message);
+
+
                     Console.Out.WriteLine("ato ");
                     ViewBag.Message = "Email sent successfully!";
                 }
@@ -143,6 +154,79 @@ namespace GRH.Controllers
             HttpContext.Session.Remove("sess");
             return RedirectToAction("LoginClient", "FrontOfficeClient");
         }
+
+        [HttpPost]
+        public IActionResult GenerateProformaPdf()
+        {
+            SqlConnection con = Connect.connectDB();
+            ProformaVente dernierProforma = ProformaVente.GetLast(con);
+
+            var html = RenderViewToString("AffDemandeProforma", dernierProforma);
+
+            // Convert HTML to PDF
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+            ColorMode = ColorMode.Color,
+            PaperSize = PaperKind.A4,
+            Margins = new MarginSettings { Top = 10 },
+        },
+                Objects = {
+            new ObjectSettings
+            {
+                HtmlContent = html,
+            }
+        }
+            };
+
+            var pdfBytes = _pdfConverter.Convert(doc);
+
+            // Save PDF file
+            var fileName = $"{dernierProforma.idProformaVente}.pdf";
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "pdfProforma", fileName);
+            System.IO.File.WriteAllBytes(filePath, pdfBytes);
+
+            // Return PDF as a file
+            return File(pdfBytes, "application/pdf", fileName);
+        }
+
+        private string RenderViewToString(string viewName, ProformaVente dernierProforma)
+        {
+            var viewResult = _viewEngine.FindView(ControllerContext, viewName, false);
+
+            if (viewResult.View == null)
+            {
+                throw new InvalidOperationException($"View '{viewName}' not found.");
+            }
+
+            using (var sw = new StringWriter())
+            {
+                try
+                {
+                    var viewContext = new ViewContext(
+                        ControllerContext,
+                        viewResult.View,
+                        ViewData,
+                        TempData,
+                        sw,
+                        new HtmlHelperOptions()
+                    );
+
+                    // Ajoutez le dernierProforma comme modèle pour rendre la vue
+                    ViewData.Model = dernierProforma;
+
+                    viewResult.View.RenderAsync(viewContext).GetAwaiter().GetResult();
+                }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException($"Error rendering view '{viewName}': {ex.Message}", ex);
+                }
+
+                return sw.GetStringBuilder().ToString();
+            }
+        }
+
+
 
     }
 }

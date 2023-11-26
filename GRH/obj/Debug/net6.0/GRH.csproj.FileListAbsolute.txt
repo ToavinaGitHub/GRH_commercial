@@ -140,3 +140,4 @@ D:\ITU\s5\Gestion\ServiceCommercial\GRH_commercial\GRH\obj\Debug\net6.0\refint\G
 D:\ITU\s5\Gestion\ServiceCommercial\GRH_commercial\GRH\obj\Debug\net6.0\GRH.pdb
 D:\ITU\s5\Gestion\ServiceCommercial\GRH_commercial\GRH\obj\Debug\net6.0\GRH.genruntimeconfig.cache
 D:\ITU\s5\Gestion\ServiceCommercial\GRH_commercial\GRH\obj\Debug\net6.0\ref\GRH.dll
+D:\ITU\s5\Gestion\ServiceCommercial\GRH_commercial\GRH\bin\Debug\net6.0\DinkToPdf.dll
