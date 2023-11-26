@@ -1,0 +1,102 @@
+@page
+@model GRH.Views.Home.Proforma
+
+
+@{
+    Layout = "~/Views/Shared/BackOfficeAccueil.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+     <div class="container">
+            <form id="crudForm" method="post" action="https://localhost:7248/Home/saveProforma/">
+                <div class="mb-3">
+                    <label for="article" class="form-label">Article</label>
+                    <select class="form-control" id="article" name="article" required>
+                        @foreach (Article a in @ViewBag.allArticle)
+                        {
+                            <option value="@a.IdArticle">@a.NomArticle</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="fournisseur" class="form-label">Fournisseur</label>
+                    <select class="form-control" id="fournisseur" name="fournisseur" required>
+                        @foreach (Fournisseur f in @ViewBag.allFournisseur)
+                        {
+                            <option value="@f.IdFournisseur">@f.NomFournisseur</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pu" class="form-label">Prix Unitaire(HT)</label>
+                    <input type="text" class="form-control" id="pu" name="pu"  required>
+                </div>
+                <div class="mb-3">
+                    <label for="tva" class="form-label">TVA</label>
+                    <input type="text" class="form-control" id="tva" name="tva" required>
+                </div>
+                <div class="mb-3">
+                    <label for="daty" class="form-label">Daty</label>
+                    <input type="date" class="form-control" id="daty" name="daty" required>
+                </div>
+                <input class="form-control" type="submit" class="btn btn-primary" value="OK">
+            </form>
+        
+            <hr>
+             <div class="card-body">
+                 <div class="table-responsive">
+                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                         <thead>
+                         <tr>
+                             <th>Article</th>
+                             <th>Prix Unitaire (HT)</th>
+                             <th>TVA</th>
+                             <th>Fournisseur</th>
+                             <th>Daty</th>
+                             <th>Action</th>
+                         </tr>
+                         </thead>
+                         <tfoot>
+                         <tr>
+                             <th>Article</th>
+                             <th>Prix Unitaire (HT)</th>
+                             <th>TVA</th>
+                             <th>Fournisseur</th>
+                             <th>Daty</th>
+                             <th>Action</th>
+                         </tr>
+                         </tfoot>
+                         <tbody>
+                         @foreach (Proforma p in @ViewBag.allProforma)
+                         {
+                             <tr>
+                                 <td>@p.article.NomArticle</td>
+                                 <td>@p.PrixUnitaire</td>
+                                 <td>@p.TVA</td>
+                                 <td>@p.fournisseur.NomFournisseur</td>
+                                 <td>@p.Daty</td>
+                                 <td class="action-table">
+                                     <a href="" class="btn btn-success btn-circle">
+                                         <i class="fas fa-check"></i>
+                                     </a>
+                                     <a href=""  class="btn btn-danger btn-circle">
+                                         <i class="fas fa-trash"></i>
+                                     </a>
+                                 </td>
+                             </tr>
+                         }
+                         </tbody>
+                     </table>
+                 </div>
+                 </div>
+        </div>
+</div>
+</body>
+</html>

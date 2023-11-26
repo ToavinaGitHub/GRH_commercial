@@ -1,0 +1,232 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutFront.cshtml";
+}
+@using Microsoft.Data.SqlClient
+@model List<Annonce>;
+
+<style>
+    /* Style général pour le corps de la page */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* En-tête */
+    header {
+        background-color: #f25c05;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    /* Titre principal */
+    h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    /* Sous-titre */
+    h4 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* Texte principal */
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Bouton d'inscription */
+    .btn-solid-lg {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #f25c05;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-solid-lg:hover {
+        background-color: #fff;
+        color:#f25c05;
+    }
+
+    /* Image */
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Filtres */
+    #filters {
+    
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #filters h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    #filters ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #filters li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    #filters a {
+        text-decoration: none;
+        color:white;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    #filters a:hover {
+        color: #f25c05;
+    }
+
+    /* Annonces */
+    .cardPoste {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .cardPoste:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cardPoste h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #f25c05;
+    }
+
+    .cardPoste h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .cardPoste p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #666;
+    }
+
+    .cardPoste .btn-solid-reg {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f25c05;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .cardPoste .btn-solid-reg:hover {
+        background-color: #f25c05;
+    }
+    .postule{
+        padding: 5%;
+    }
+    
+    /* Ajoutez d'autres styles personnalisés au besoin */
+</style>
+
+<link rel="stylesheet" type="text/css" href="css/listeAnnonce.css">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="text-container">
+                <h1 class="h1-large">JOB-IT vous aide à trouver un emploi de façon <span class="replace-me">Rapide, Efficace, Assuré</span></h1>
+                <p class="p-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut vanic barem ultrices sollicitudin</p>
+                @if (@Context.Session.GetString("userSession") == null)
+                {
+                    <a class="btn-solid-lg" href="sign-up.html">Inscrivez-vous</a>   
+                }
+            </div> <!-- end of text-container -->
+        </div> <!-- end of col -->
+        <div class="col-lg-6">
+            <div class="image-container">
+                <img class="img-fluid"  style="height: 500px;" src="~/Image/details-1.svg" alt="alternative">
+            </div> <!-- end of image-container -->
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <div id="filters">
+        <ul class="list-inline">
+            <li class="list-inline-item"><a class="btn-solid-lg" href="#" data-filter="all">Tous</a></li>
+            @foreach (Services s in @ViewBag.allService)
+            {
+                <li class="list-inline-item"><a class="btn-solid-lg" href="#" data-filter="@s.nomService">@s.nomService</a></li>   
+            }
+            <!-- Ajoutez d'autres filtres ici -->
+        </ul>
+    </div>
+    <div style="display: flex">
+        @{
+            SqlConnection co = Connect.connectDB();
+        }
+        @foreach (Services services in @ViewBag.allService)
+        {
+            <div class="row cont" data-filter="@services.nomService" style="padding: 1%">
+                @foreach (Annonce annonce in @ViewBag.all)
+                {
+                    @if (Annonce.estPostule(annonce.idAnnonce, int.Parse(Context.Session.GetString("userSession")), Connect.connectDB()) == false)
+                    {
+                        if (annonce.postes.service.idService == services.idService)
+                        {
+                            <div class="col-md-12">
+                                <div class="cardPoste">
+                                    <div class="text-container">
+                                        <h2>@annonce.postes.service.nomService</h2>
+                                        <h4>@annonce.postes.nomPoste</h4>
+                                        <p>@annonce.descriptions</p>
+                                        <p></p>
+                                        <a class="btn-outline-sm" href="https://localhost:7248/FrontOffice/Cv?idAnnonce=@annonce.idAnnonce" action>Postuler <i class="fas fa-arrow-right"></i></a>
+                                    </div> <!-- end of text-container -->
+                                </div> <!-- end of cardPoste -->
+                            </div>
+                        }   
+                    }
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#filters a').on('click', function() {
+            var filter = $(this).data('filter');
+            if (filter === 'all') {
+                $('.cont').show();
+            } else {
+                $('.cont').hide();
+                $('.cont[data-filter="' + filter + '"]').show();
+            }
+        });
+    });
+</script>

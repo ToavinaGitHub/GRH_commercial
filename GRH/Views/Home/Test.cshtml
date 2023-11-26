@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/BackOfficeAccueil.cshtml";
+}
+@model QuestionReponse
+
+<body>
+    <form action="" method="post">
+        <div class="questionnaire">
+            @for (int i = 0; i < Model.questions.Count; i++)
+            {
+                <div class="question">
+                    <p>@Model.questions[i].nom</p>
+                    <ul class="reponses">
+                        @foreach (var reponse in Model.reponses[i])
+                        {
+                            <li>
+                                <input type="checkbox" name="reponse" value="@reponse.idReponse" id="reponse_@reponse.idReponse" />
+                                <label for="reponse_@reponse.idReponse">@reponse.nom</label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    </form>
+    <button type="submit" class="btn btn-primary">Valider</button>
+</body>

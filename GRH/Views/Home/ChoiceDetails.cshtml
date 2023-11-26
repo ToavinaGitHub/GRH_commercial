@@ -1,0 +1,42 @@
+@page
+@model GRH.Views.Home.ChoiceDetails
+@{
+   Layout = "~/Views/Shared/BackOfficeAccueil.cshtml";
+}
+
+<!-- Earnings (Monthly) Card Example -->
+  <div class="row justify-content-center" style="display: initial"> <!-- Ajoutez la classe justify-content-center pour centrer les cartes -->
+    <div class="col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body d-flex align-items-center justify-content-center"> <!-- Ajoutez les classes ici -->
+          <div>
+            <a href="https://localhost:7248/Home/NoteCv?idAnnonce=@ViewBag.idAnnonce"><div class="h5 mb-0 font-weight-bold text-gray-800">CV postulé</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body d-flex align-items-center justify-content-center"> <!-- Ajoutez les classes ici -->
+          <div>
+            <a href="https://localhost:7248/Home/NoteTest?idAnnonce=@ViewBag.idAnnonce">
+              <div class="h5 mb-0 font-weight-bold text-gray-800">CV testé</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col-md-6 mb-4">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body d-flex align-items-center justify-content-center"> <!-- Ajoutez les classes ici -->
+              <div>
+                <a href="https://localhost:7248/Home/NoteEntretien?idAnnonce=@ViewBag.idAnnonce">
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">CV en entretien</div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- Répétez le même code pour les autres cartes -->
+  </div>
+  
+  
+

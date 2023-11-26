@@ -1,0 +1,26 @@
+
+
+---Integration Back office et front office
+
+--Back office
+	-Note CV --> envoyena anaty test
+	
+	-Note Test --> programmation jour d'entretien
+
+		-Avoaka liste olona manao entretien de programmena tsirairay ny jour sy lera anaovany Entretien
+
+
+--Front office
+
+	-Postule CV
+
+	-Notification de test avec QCM
+
+
+
+--Gestion congé
+
+  -Congé deductible - non deductible
+
+
+-Liste personnel

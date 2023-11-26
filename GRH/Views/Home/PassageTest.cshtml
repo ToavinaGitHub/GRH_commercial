@@ -1,0 +1,60 @@
+@{
+    Layout = "~/Views/Shared/BackOfficeAccueil.cshtml";
+}
+@model List<Cv>
+
+<body>
+<form action="/Home/QCM" method="post">
+    <input type="hidden" name="idService" value="@ViewBag.idService" />
+    <input type="hidden" name="idAnnonce" value="@ViewBag.idAnnonce" />
+    <button type="submit" class="btn btn-primary">Creer le questionnaire</button>
+</form>
+
+<h1>Liste des CV pouvant faire le test le: @ViewBag.date</h1>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prénoms</th>
+        <th>Date de naissance</th>
+        <th>Email</th>
+        <th>Adresse</th>
+        <th>Sexe</th>
+        <th>Critère</th>
+        <th>Sous-critère</th>
+        <th>Note</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cv in Model)
+    {
+        <tr>
+            <td>@cv.client.nom</td>
+            <td>@cv.client.prenoms</td>
+            <td>@cv.client.dtn</td>
+            <td>@cv.client.email</td>
+            <td>@cv.client.adresse</td>
+            <td>@cv.client.sexe</td>
+            <td></td>
+            <td></td>
+            <td>@cv.client.note</td>
+        </tr>
+        @foreach (var details in cv.sousCritere)
+        {
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>@details.critere.nomCritere</td>
+                <td>@details.nomSousCritere</td>
+                <td></td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+</body>

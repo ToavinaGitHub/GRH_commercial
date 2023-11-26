@@ -1,0 +1,98 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutFront.cshtml";
+}
+<style>
+    .container {
+        justify-content: center;
+        align-items: center;
+    }
+    .form-container {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
+        max-width: 545px;
+        width: 100%;
+    }
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    .form-control-file {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .btn-submit {
+        background-color: #f25c05;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn-submit:hover {
+        background-color: #e34b00;
+    }
+    
+    /* Ajoutez d'autres styles personnalisés au besoin */
+</style>
+<link href="css/addCv.css" rel="stylesheet" type="text/css"/>
+
+<div class="container" style="display:flex;">
+    <div class="form-container col-md-12">
+        <h1>Insertion CV</h1>
+        <form id="cvForm" enctype="multipart/form-data" method="post" action="https://localhost:7248/FrontOffice/insertCv/" >
+            <input type="hidden" name="idAnnonce" value="@ViewBag.annonce.idAnnonce"/>
+            @foreach (Critere cr in @ViewBag.allCritere)
+            {
+                <div class="form-group">
+                    <label for="@cr.nomCritere">@cr.nomCritere :</label>
+                    <select class="form-control" id="@cr.nomCritere" name="@cr.idCritere" required>
+                        <option value="">Sélectionnez @cr.nomCritere</option>
+                        @foreach (SousCritere s in SousCritere.getByIdCritere(Connect.connectDB(), cr.idCritere))
+                        {
+                            <option value="@s.idSousCritere">@s.nomSousCritere</option>
+                        }
+                    </select>
+                </div>
+            }
+            <div class="form-group">
+                <label for="cv">Pdf diplome :</label>
+                <input type="file" class="form-control-file" id="dipPdf" name="diplPdf" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div class="form-group">
+                <label for="cv">Pdf d'attestation :</label>
+                <input type="file" class="form-control-file" id="attPdf" name="attPdf" accept=".pdf,.doc,.docx" required>
+            </div>
+            <input type="submit" class="btn-submit" value="Inserer">
+        </form>
+    </div>
+   
+</div>
+       

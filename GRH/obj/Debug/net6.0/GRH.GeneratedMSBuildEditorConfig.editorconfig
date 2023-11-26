@@ -1,0 +1,177 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GRH
+build_property.RootNamespace = GRH
+build_property.ProjectDir = D:\ITU\s5\Gestion\ServiceCommercial\GRH_commercial\GRH\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\ITU\s5\Gestion\ServiceCommercial\GRH_commercial\GRH
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Annonce/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5ub25jZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/FrontOffice/Cv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRPZmZpY2VcQ3YuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/FrontOffice/DemandeConge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRPZmZpY2VcRGVtYW5kZUNvbmdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/FrontOffice/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRPZmZpY2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/FrontOffice/Inscription.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRPZmZpY2VcSW5zY3JpcHRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/FrontOffice/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRPZmZpY2VcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/FrontOffice/QCM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJvbnRPZmZpY2VcUUNNLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/AddAnotherContrat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRBbm90aGVyQ29udHJhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/AddContratEssai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRDb250cmF0RXNzYWkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/AffBonDeCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZmZCb25EZUNvbW1hbmRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/AllAnnonce.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxBbm5vbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/AllBonDeCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxCb25EZUNvbW1hbmRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/BesoinAchat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCZXNvaW5BY2hhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/BonDeCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb25EZUNvbW1hbmRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/BonDeCommande_2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb25EZUNvbW1hbmRlXzIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/ChoiceDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaG9pY2VEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/InsertFournisseur.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnNlcnRGb3Vybmlzc2V1ci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/ListeContratEssai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0ZUNvbnRyYXRFc3NhaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/ListeDmConge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0ZURtQ29uZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/ListeMpiasa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0ZU1waWFzYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/NoteCv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb3RlQ3YuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/NoteEntretien.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb3RlRW50cmV0aWVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/NoteTeste.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb3RlVGVzdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/PassageEntretien.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXNzYWdlRW50cmV0aWVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/PassageTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXNzYWdlVGVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/Proforma.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9mb3JtYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/QCM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxRQ00uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/ShowBonCommande.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG93Qm9uQ29tbWFuZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Home/TousBesoin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUb3VzQmVzb2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Preback/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlYmFja1xMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Shared/BackOfficeAccueil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEJhY2tPZmZpY2VBY2N1ZWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Shared/LayoutFront.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dEZyb250LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ITU/s5/Gestion/ServiceCommercial/GRH_commercial/GRH/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-o2qmovr6a6
