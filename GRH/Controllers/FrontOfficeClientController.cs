@@ -138,5 +138,11 @@ namespace GRH.Controllers
             return Json(uniteArticles);
         }
 
+        public IActionResult logout()
+        {
+            HttpContext.Session.Remove("sess");
+            return RedirectToAction("LoginClient", "FrontOfficeClient");
+        }
+
     }
 }
