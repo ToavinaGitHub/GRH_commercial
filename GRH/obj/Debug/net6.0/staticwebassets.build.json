@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "be5kEh9mD6th2ZRRxn2dR1y71gS/zFhVLLPZjoDhbMI=",
+  "Hash": "uGHO6hrVntZCWJbhpxRXz182xIKHJNzaD+qZlds4rfc=",
   "Source": "GRH",
   "BasePath": "_content/GRH",
   "Mode": "Default",
@@ -2480,40 +2480,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
-    },
-    {
-      "Identity": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\pdf\\1.pdf",
-      "SourceId": "GRH",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\",
-      "BasePath": "_content/GRH",
-      "RelativePath": "pdf/1.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\pdf\\1.pdf"
-    },
-    {
-      "Identity": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\pdf\\PV1.pdf",
-      "SourceId": "GRH",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\",
-      "BasePath": "_content/GRH",
-      "RelativePath": "pdf/PV1.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\pdf\\PV1.pdf"
     },
     {
       "Identity": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\pdfAttestation\\11.pdf",

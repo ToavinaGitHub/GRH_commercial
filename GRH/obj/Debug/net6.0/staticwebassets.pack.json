@@ -681,14 +681,6 @@
       "PackagePath": "staticwebassets\\pdfDiplome\\5.pdf"
     },
     {
-      "Id": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\pdf\\1.pdf",
-      "PackagePath": "staticwebassets\\pdf\\1.pdf"
-    },
-    {
-      "Id": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\pdf\\PV1.pdf",
-      "PackagePath": "staticwebassets\\pdf\\PV1.pdf"
-    },
-    {
       "Id": "D:\\S5\\Mr Tovo\\GRH_commercial\\GRH\\wwwroot\\vendor\\bootstrap\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\vendor\\bootstrap\\js\\bootstrap.bundle.js"
     },

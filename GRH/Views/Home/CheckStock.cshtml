@@ -15,7 +15,7 @@
             padding: 0;
         }
 
-        form {
+        #soratra {
             max-width: 400px;
             margin: 20px auto;
             padding: 20px;
@@ -31,7 +31,7 @@
             margin-bottom: 15px;
         }
 
-        input[type="submit"] {
+        input[type="submit"], .email-button {
             background-color: #4285f4;
             color: #fff;
             padding: 10px 15px;
@@ -39,31 +39,17 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: inline-block; /* Permet d'aligner les boutons côte à côte */
+            margin-right: 10px; /* Marge entre les boutons */
         }
 
-            input[type="submit"]:hover {
+            input[type="submit"]:hover, .email-button:hover {
                 background-color: #1c4bd8;
             }
 
         input[type="hidden"] {
             display: none;
         }
-
-        /* Styles spécifiques pour le bouton "Envoyer l'email" */
-        .email-button {
-            background-color: #34a853;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-
-            .email-button:hover {
-                background-color: #1e7bbd;
-            }
 
         /* Style pour le message "Article en rupture de stock" */
         .out-of-stock-message {
@@ -76,41 +62,54 @@
 <body>
     @if (ViewBag.id == 1)
     {
-        <form action="https://localhost:7248/Home/pdfProforma/" method="post">
-            <input type="hidden" name="id" value="1">
-            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
-            <p>Quantité insuffisante, reste en stock: @ViewBag.stock.article.nomArticleVente @ViewBag.stock.reste @ViewBag.stock.article.nomUnite </p>
-            <input type="submit" value="PDF">
-        </form>
-        <form action="https://localhost:7248/Home/sendProforma/" method="post">
-            <input type="hidden" name="id" value="1">
-            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
-            <input type="submit" class="email-button" value="Envoyer l'email" />
-        </form>
+        <div id="soratra">
+            <form action="https://localhost:7248/Home/pdfProforma/" method="post">
+                <input type="hidden" name="id" value="1">
+                <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+                <p>Quantité insuffisante, reste en stock: @ViewBag.stock.article.nomArticleVente @ViewBag.stock.reste @ViewBag.stock.article.nomUnite </p>
+                <button type="submit" class="btn btn-primary btn-pdf">PDF <i class="fas fa-file-pdf"></i></button>
+                
+            </form>
+            <br>
+            <form action="https://localhost:7248/Home/sendProforma/" method="post">
+                <input type="hidden" name="id" value="1">
+                <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+                <button type="submit" class="btn btn-success btn-email">Envoyer l'email <i class="far fa-envelope"></i></button>
+            </form>
+        </div>
+       
     }
     @if (ViewBag.id == 2)
     {
-        <form action="https://localhost:7248/Home/pdfProforma/" method="post">
-            <input type="hidden" name="id" value="2">
-            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
-            <input type="hidden" name="quantite" value="@ViewBag.quantite">
-            <p>Quantité disponible pour: @ViewBag.stock.article.nomArticleVente @ViewBag.quantite @ViewBag.stock.article.nomUnite </p>
-            <input type="submit" value="PDF">
-        </form>
-        <form action="https://localhost:7248/Home/sendProforma/" method="post">
-            <input type="hidden" name="id" value="2">
-            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
-            <input type="submit" class="email-button" value="Envoyer l'email" />
-        </form>
+         <div id="soratra">
+            <form action="https://localhost:7248/Home/pdfProforma/" method="post">
+                <input type="hidden" name="id" value="2">
+                <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+                <input type="hidden" name="quantite" value="@ViewBag.quantite">
+                <p>Quantité disponible pour: @ViewBag.stock.article.nomArticleVente @ViewBag.quantite @ViewBag.stock.article.nomUnite </p>
+                <button type="submit" class="btn btn-primary btn-pdf">PDF <i class="fas fa-file-pdf"></i></button>
+               
+            </form>
+            <br>
+            <form action="https://localhost:7248/Home/sendProforma/" method="post">
+                <input type="hidden" name="id" value="2">
+                <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+                <button type="submit" class="btn btn-success btn-email">Envoyer l'email <i class="far fa-envelope"></i></button>
+            </form>
+         </div>
+        
     }
     @if (ViewBag.id == 3)
     {
-        <p class="out-of-stock-message">Article en rupture de stock</p>
-        <form action="https://localhost:7248/Home/sendProforma/" method="post">
-            <input type="hidden" name="id" value="3">
-            <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
-            <input type="submit" class="email-button" value="Envoyer l'email" />
-        </form>
+        <div id="soratra">
+            <p class="out-of-stock-message">Article en rupture de stock</p>
+            <form action="https://localhost:7248/Home/sendProforma/" method="post">
+                <input type="hidden" name="id" value="3">
+                <input type="hidden" name="idPv" value="@ViewBag.pv.idProformaVente">
+                <button type="submit" class="btn btn-success btn-email">Envoyer l'email <i class="far fa-envelope"></i></button>
+            </form>
+        </div>
+       
     }
 </body>
 </html>
