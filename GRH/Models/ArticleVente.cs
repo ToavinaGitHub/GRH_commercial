@@ -10,9 +10,9 @@ namespace GRH.Models
 
         public string nomUnite { get; set; }
 
-        public double pu { get; set; }
+        public double puHT { get; set; }
 
-        
+        public double tva { get; set; }  
 
         public ArticleVente() { }
 
@@ -37,14 +37,15 @@ namespace GRH.Models
                 string nom = (string)reader["nomArticleVente"];
                 string nomUnite = (string)reader["nomUnite"];
                 article = new ArticleVente(idArticle,nom, nomUnite);
+                article.tva = 20;
             }
             reader.Close();
             co.Close();
-            article.pu = this.getPrix(idArticle);
+            article.puHT = this.getPrix(idArticle);
             return article;
         }
 
-        public double getPrix(int idArticle)
+        public double getPrix(int idArticle)    
         {
             SqlConnection co;
             Connect new_co = new Connect();

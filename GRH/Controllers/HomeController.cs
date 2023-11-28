@@ -1005,7 +1005,10 @@ namespace GRH.Controllers
                 int quantite= int.Parse(Request.Form["quantite"]);
                 stock.reste = quantite;
             }
-            stock.prixTotal = stock.reste * stock.article.pu;
+            stock.prixTotalHT= stock.reste * stock.article.puHT;
+            double prixTva = (stock.article.puHT * stock.article.tva) / 100;
+            stock.totalTVA= stock.reste *prixTva;
+            stock.prixTotalTTC= stock.prixTotalHT+stock.totalTVA;
             ViewBag.stock = stock;
             ViewBag.pv= pv;
 

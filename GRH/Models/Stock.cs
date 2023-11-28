@@ -8,20 +8,21 @@ namespace GRH.Models
 
         public ArticleVente article { get; set; }
 
-        public double prixUnitaire { get; set; }
-
         public double quantiteInitiale { get; set; }
 
         public double reste { get; set; }
 
-        public double prixTotal { get; set; }
+        public double prixTotalHT { get; set; }
+
+        public double prixTotalTTC { get; set; }
+
+        public double totalTVA { get; set; }
 
         public Stock() { }
 
-        public Stock(ArticleVente article, double prixUnitaire, double quantiteInitiale, double reste)
+        public Stock(ArticleVente article,double quantiteInitiale, double reste)
         {
             this.article = article;
-            this.prixUnitaire = prixUnitaire;
             this.quantiteInitiale = quantiteInitiale;
             this.reste = reste;
         }

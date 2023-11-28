@@ -34,6 +34,11 @@
         .total {
             font-weight: bold;
         }
+
+        #result{
+            margin-top: 100px;
+            margin-left:700px;
+        }
     </style>
 </head>
 <body>
@@ -49,8 +54,9 @@
                 <th>Designation</th>
                 <th>Quantité</th>
                 <th>Unite</th>
-                <th>Prix unitaire</th>
-                <th>Total</th>
+                <th>Prix unitaire HT</th>
+                <th>% TVA</th>
+                <th>Prix total HT</th>
             </tr>
         </thead>
         <tbody>
@@ -58,11 +64,18 @@
                 <td>@ViewBag.stock.article.nomArticleVente</td>
                 <td>@ViewBag.stock.reste</td>
                 <td>@ViewBag.stock.article.nomUnite</td>
-                <td>@ViewBag.stock.article.pu Ar</td>
-                <td>@ViewBag.stock.prixTotal Ar</td>
+                <td>@ViewBag.stock.article.puHT Ar</td>
+                <td>@ViewBag.stock.article.tva %</td>
+                <td>@ViewBag.stock.prixTotalHT Ar</td>
             </tr>
         </tbody>
     </table>
+    <div id="result">
+        <h5>Total HT:     @ViewBag.stock.prixTotalHT Ar</h5>
+        <h5>Total TVA:    @ViewBag.stock.totalTVA Ar</h5>
+        <h5>Total TTC:    @ViewBag.stock.prixTotalTTC Ar</h5>
+    </div>
+    
 
 </body>
 </html>

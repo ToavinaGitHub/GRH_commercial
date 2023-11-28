@@ -1,3 +1,5 @@
+/*sqlcmd -S KOLOINA\SQLEXPRESS -E*/
+
 CREATE TABLE Services(
    idService INT IDENTITY,
    nomService VARCHAR(255)  NOT NULL,
